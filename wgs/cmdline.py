@@ -38,6 +38,13 @@ def add_global_args(subparser):
                            required=True,
                            help='''reference data dir''')
 
+    subparser.add_argument("--PDX",
+                           required=False,
+                           help='''specify if sample is a PDX''')
+    subparser.add_argument("--mouse_refdir",
+                           required=False,
+                           help='''required if PDX flag is used''')
+
     pypeliner.app.add_arguments(subparser)
 
     return subparser
