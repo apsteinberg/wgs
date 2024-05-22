@@ -29,6 +29,7 @@ input_yaml=${HOME}/wgs/hpc_submission/APS017_PDX_test_inputs.yaml
 pipelinedir=${HOME}/wgs
 mouse_refdir=/data1/shahs3/isabl_data_lake/assemblies/WGS-MM10/mouse/
 refdir=/data1/shahs3/reference/ref-sarcoma/GRCh38/v45/
+output_prefix=TCDO-SAR-034-PDX
 ########
 singularity exec ${sif_path} wgs alignment \
     --input_yaml ${input_yaml} \
@@ -42,6 +43,7 @@ singularity exec ${sif_path} wgs alignment \
     --sentinel_only \
     --re-run \
     --refdir ${refdir}\
+    --output_prefix ${output_prefix}
     --PDX \
     --mouse_refdir ${mouse_refdir}
 
