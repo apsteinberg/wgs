@@ -38,7 +38,7 @@ singularity exec ${sif_path} wgs alignment \
     --submit slurm \
     --maxjobs 1000 \
     --nocleanup \
-    --loglevel DEBUG
+    --loglevel DEBUG \
     --sentinel_only \
     --re-run \
     --refdir ${refdir}\

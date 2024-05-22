@@ -39,6 +39,7 @@ def add_global_args(subparser):
                            help='''reference data dir''')
 
     subparser.add_argument("--PDX",
+                           action="store_true",
                            required=False,
                            help='''specify if sample is a PDX''')
     subparser.add_argument("--mouse_refdir",
