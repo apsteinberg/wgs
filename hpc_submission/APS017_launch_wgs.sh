@@ -43,7 +43,7 @@ singularity exec ${sif_path} wgs alignment \
     --sentinel_only \
     --re-run \
     --refdir ${refdir}\
-    --output_prefix ${output_prefix}
+    --output_prefix ${output_prefix} \
     --PDX \
     --mouse_refdir ${mouse_refdir}
 
