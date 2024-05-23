@@ -18,9 +18,9 @@ RUN pip install git+https://github.com/shahcompbio/biowrappers.git@master
 RUN pip install git+https://github.com/shahcompbio/wgs_qc_utils.git@v0.0.8
 RUN pip install pandas matplotlib numpy scipy pyvcf
 # Use the argument to control whether to run the command
-RUN if [ "$REINSTALL_WGS" = "true" ]; then \
-    pip install git+https://github.com/apsteinberg/wgs.git; \
-    fi
+#RUN if [ "$REINSTALL_WGS" = "true" ]; then \
+#    pip install git+https://github.com/apsteinberg/wgs.git; \
+#    fi
 RUN conda install -c bioconda pysam
 
 RUN conda create --name igvtools
