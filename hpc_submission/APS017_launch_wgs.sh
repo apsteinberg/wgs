@@ -37,7 +37,7 @@ singularity exec ${sif_path} wgs alignment \
     --output_prefix ${test_outdir} \
     --loglevel DEBUG \
     --submit slurm \
-    --context_config asdf \
+    --context_config ${context_yaml} \
     --maxjobs 1000 \
     --nativespec ' -p componc_cpu -N 1 -n {ncpus} --mem={mem}G -t {walltime} ' \
     --refdir ${refdir}\
