@@ -26,6 +26,7 @@ mkdir -p ${tmpdir}
 ###
 sif_path=/data1/shahs3/users/preskaa/singularity/wgs_alignment_latest.sif
 input_yaml=${HOME}/wgs/hpc_submission/APS017_PDX_test_inputs.yaml
+context_yaml=${HOME}/wgs/hpc_submission/APS017_PDX_test_context_config.yaml
 pipelinedir=${HOME}/wgs
 mouse_refdir=/data1/shahs3/isabl_data_lake/assemblies/WGS-MM10/mouse
 refdir=/data1/shahs3/reference/ref-sarcoma/GRCh38/v45
