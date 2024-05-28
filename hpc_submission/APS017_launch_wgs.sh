@@ -27,22 +27,22 @@ mkdir -p ${tmpdir}
 sif_path=/data1/shahs3/users/preskaa/singularity/wgs_alignment_latest.sif
 input_yaml=${HOME}/wgs/hpc_submission/APS017_PDX_test_inputs.yaml
 pipelinedir=${HOME}/wgs
-mouse_refdir=/data1/shahs3/isabl_data_lake/assemblies/WGS-MM10/mouse/
-refdir=/data1/shahs3/reference/ref-sarcoma/GRCh38/v45/
+mouse_refdir=/data1/shahs3/isabl_data_lake/assemblies/WGS-MM10/mouse
+refdir=/data1/shahs3/reference/ref-sarcoma/GRCh38/v45
 output_prefix=TCDO-SAR-034-PDX
 ########
 singularity exec ${sif_path} wgs alignment \
     --input_yaml ${input_yaml} \
-    --tmpdir ${tmpdir} \
-    --pipelinedir ${pipelinedir} \
-    --submit slurm \
-    --maxjobs 1000 \
-    --nocleanup \
-    --loglevel DEBUG \
-    --sentinel_only \
-    --re-run \
-    --refdir ${refdir}\
     --output_prefix ${test_outdir} \
+    --loglevel DEBUG \
+    --submit slurm \
+    --context_config asdf \
+    --maxjobs 1000 \
+    --nativespec ' -p componc_cpu -N 1 -n {ncpus} --mem={mem}G -t {walltime} ' \
+    --refdir ${refdir}\
+    --sentinel_only \
+    --nocleanup \
+    --picard_mem 18 \
     --PDX \
     --mouse_refdir ${mouse_refdir}
 

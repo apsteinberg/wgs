@@ -1,0 +1,22 @@
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: linux-64
+python>=3.9
+pypeliner
+pandas
+pysam
+gzip
+yaml
+shutil
+logging
+collections
+errno
+multiprocessing
+tarfile
+subprocess
+PyPDF2
+fpdf
+vcf
+
+
+
