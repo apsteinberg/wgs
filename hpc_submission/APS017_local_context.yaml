@@ -1,0 +1,11 @@
+context:
+  alljobs:
+    ctx:
+      mem: 20
+      mem_retry_factor: 2
+      ncpus: 12
+      disk: 20
+      walltime: '4:00:00'
+      walltime_num_retry: 5
+      walltime_retry_increment: '4:00:00'
+    name_match: '*'

@@ -4,7 +4,20 @@ from wgs.config import config
 from wgs.utils import helpers
 from wgs.workflows.alignment.dtypes import dtypes
 
+def disambiguate(output_prefix, alignment2human, alignment2mouse, humanreads):
+    '''
+    disambiguate mouse from human reads with disambiguate
+    :param output_prefix: prefix for output files
+    :param alignment2human: bam file of reads aligned to human
+    :param alignment2mouse: bam file of reads aligned to mouse
 
+    '''
+    ## execute disambiguate
+    pypeliner.commandline.execute(
+        "disambiguate", "-s", output_prefix,
+        alignment2human, alignment2mouse,
+        "-a", "bwa"
+    )
 def collect_bam_metrics(
         bam, markdups_metrics, sample_id, refdir,
         metrics, picard_insert_metrics, picard_insert_pdf,

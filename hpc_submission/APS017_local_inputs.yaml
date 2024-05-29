@@ -1,0 +1,11 @@
+bam: /Users/preskaa/PycharmProjects/wgs/alignment_test/TCDO-SAR-034-PDX.bam
+fastqs:
+  HG2GGDSXY.1:
+    fastq1: /Users/preskaa/PycharmProjects/wgs/alignment_test/test_fastqs/TCDO-SAR-034-PDX_R1.downsampled.100rds.fastq.gz
+    fastq2: /Users/preskaa/PycharmProjects/wgs/alignment_test/test_fastqs/TCDO-SAR-034-PDX_R2.downsampled.100rds.fastq.gz
+readgroup_info:
+  CN: IGO
+  ID: '{lane_id}'
+  PL: ILLUMINA-NovaSeq-6000
+  PU: '{lane_id}'
+  SM: SHAH_H003460_T01_02_WG01

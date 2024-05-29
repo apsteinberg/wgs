@@ -35,7 +35,6 @@ output_prefix=TCDO-SAR-034-PDX
 singularity exec ${sif_path} wgs alignment \
     --input_yaml ${input_yaml} \
     --output_prefix ${test_outdir} \
-    --tmpdir ${tmpdir} \
     --loglevel DEBUG \
     --submit slurm \
     --context_config ${context_yaml} \
