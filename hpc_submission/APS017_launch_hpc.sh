@@ -52,7 +52,7 @@ singularity exec \
     echo 'slurm:x:300:300::/opt/slurm/slurm:/bin/false' >> /etc/passwd && \
     wgs alignment \
         --input_yaml ${input_yaml} \
-        --output_prefix ${test_outdir} \
+        --output_prefix ${output_prefix} \
         --loglevel DEBUG \
         --submit slurm \
         --context_config ${context_yaml} \
