@@ -32,7 +32,7 @@ mouse_refdir=/data1/shahs3/isabl_data_lake/assemblies/WGS-MM10/mouse
 refdir=/data1/shahs3/reference/ref-sarcoma/GRCh38/v45
 output_prefix=TCDO-SAR-034-PDX
 ########
-singularity shell \
+singularity exec \
     -B /var/run/munge \
     -B /usr/lib64/libmunge.so.2 \
     -B /usr/lib64/libmunge.so.2.0.0 \
@@ -45,22 +45,22 @@ singularity shell \
     -B /usr/lib64/slurm \
     -B /etc/slurm \
     --bind /data1/shahs3 \
-    ${sif_path}
-echo "slurm:x:300:300::/opt/slurm/slurm:/bin/false" >> /etc/passwd
-wgs alignment \
-    --input_yaml ${input_yaml} \
-    --output_prefix ${test_outdir} \
-    --loglevel DEBUG \
-    --submit slurm \
-    --context_config ${context_yaml} \
-    --maxjobs 1000 \
-    --nativespec ' -p componc_cpu -N 1 -n {ncpus} --mem={mem}G -t {walltime} ' \
-    --refdir ${refdir} \
-    --sentinel_only \
-    --nocleanup \
-    --picard_mem 18 \
-    --PDX \
-    --mouse_refdir ${mouse_refdir}
+    ${sif_path} /bin/bash -c "\
+    echo 'slurm:x:300:300::/opt/slurm/slurm:/bin/false' >> /etc/passwd && \
+    wgs alignment \
+        --input_yaml ${input_yaml} \
+        --output_prefix ${test_outdir} \
+        --loglevel DEBUG \
+        --submit slurm \
+        --context_config ${context_yaml} \
+        --maxjobs 1000 \
+        --nativespec ' -p componc_cpu -N 1 -n {ncpus} --mem={mem}G -t {walltime} ' \
+        --refdir ${refdir} \
+        --sentinel_only \
+        --nocleanup \
+        --picard_mem 18 \
+        --PDX \
+        --mouse_refdir ${mouse_refdir}"
 
 
 
