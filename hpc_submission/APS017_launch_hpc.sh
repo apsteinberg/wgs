@@ -32,6 +32,7 @@ mouse_refdir=/data1/shahs3/isabl_data_lake/assemblies/WGS-MM10/mouse
 refdir=/data1/shahs3/reference/ref-sarcoma/GRCh38/v45
 output_prefix=TCDO-SAR-034-PDX
 ########
+mkdir -p ${test_outdir}
 cd ${test_outdir}
 
 singularity exec \
