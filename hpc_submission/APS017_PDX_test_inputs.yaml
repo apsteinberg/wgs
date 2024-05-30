@@ -1,8 +1,8 @@
 bam: /data1/shahs3/users/preskaa/APS017_Archive/wgs_test/TCDO-SAR-034-PDX.bam
 fastqs:
   HG2GGDSXY.1:
-    fastq1: /data1/shahs3/users/preskaa/APS017_Archive/wgs_test_fastq/TCDO-SAR-034-PDX_R1.downsampled.fastq.gz
-    fastq2: /data1/shahs3/users/preskaa/APS017_Archive/wgs_test_fastq/TCDO-SAR-034-PDX_R2.downsampled.fastq.gz
+    fastq1: /data1/shahs3/users/preskaa/APS017_Archive/wgs_test_fastq/TCDO-SAR-034-PDX_R1.downsampled.100rds.fastq
+    fastq2: /data1/shahs3/users/preskaa/APS017_Archive/wgs_test_fastq/TCDO-SAR-034-PDX_R2.downsampled.100rds.fastq
 readgroup_info:
   CN: IGO
   ID: '{lane_id}'

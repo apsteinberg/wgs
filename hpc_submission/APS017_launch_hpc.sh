@@ -32,7 +32,22 @@ mouse_refdir=/data1/shahs3/isabl_data_lake/assemblies/WGS-MM10/mouse
 refdir=/data1/shahs3/reference/ref-sarcoma/GRCh38/v45
 output_prefix=TCDO-SAR-034-PDX
 ########
-singularity exec ${sif_path} wgs alignment \
+singularity shell \
+    -B /var/run/munge \
+    -B /usr/lib64/libmunge.so.2 \
+    -B /usr/lib64/libmunge.so.2.0.0 \
+    -B /run/munge \
+    -B /usr/bin/squeue \
+    -B /usr/bin/scontrol \
+    -B /usr/bin/sacct \
+    -B /usr/bin/scancel \
+    -B /usr/bin/sbatch \
+    -B /usr/lib64/slurm \
+    -B /etc/slurm \
+    --bind /data1/shahs3 \
+    ${sif_path}
+echo "slurm:x:300:300::/opt/slurm/slurm:/bin/false" >> /etc/passwd
+wgs alignment \
     --input_yaml ${input_yaml} \
     --output_prefix ${test_outdir} \
     --loglevel DEBUG \
