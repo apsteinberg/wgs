@@ -9,7 +9,7 @@ RUN apt-get update --allow-releaseinfo-change && apt install build-essential gcc
 
 RUN conda install -c bioconda bwa
 RUN conda install anaconda::freetype -y
-RUN conda install -c bioconda -c conda-forge fastqc openjdk=11.0.8
+RUN conda install -c bioconda -c conda-forge fastqc openjdk=11.0.9
 
 RUN rm -rf /opt/conda/lib/python3.7/site-packages/pypeliner*
 RUN pip install git+https://github.com/shahcompbio/pypeliner.git@slurm
@@ -17,12 +17,12 @@ RUN pip install git+https://github.com/shahcompbio/pypeliner.git@slurm
 RUN pip install git+https://github.com/shahcompbio/biowrappers.git@master
 RUN pip install git+https://github.com/shahcompbio/wgs_qc_utils.git@v0.0.8
 RUN pip install pandas matplotlib numpy scipy pyvcf
-RUN pip install leukgen_disambiguate
 # Use the argument to control whether to run the command
 RUN if [ "$REINSTALL_WGS" = "true" ]; then \
     pip install git+https://github.com/apsteinberg/wgs.git; \
     fi
 RUN conda install -c bioconda pysam
+RUN pip install leukgen_disambiguate
 
 RUN conda create --name igvtools
 SHELL ["conda", "run", "-n", "igvtools", "/bin/bash", "-c"]
