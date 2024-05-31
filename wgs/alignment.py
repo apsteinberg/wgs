@@ -58,7 +58,7 @@ def alignment_workflow(args):
             args=(
                 mgd.InputFile('input.r1.fastq.gz', 'lane_id', fnames=fastqs_r1),
                 mgd.InputFile('input.r2.fastq.gz', 'lane_id', fnames=fastqs_r2),
-                mgd.OutputFile(args['output_prefix'] + '.human.aligned.bam'),
+                mgd.OutputFile(args['output_prefix'] + 'human_aligned.bam'),
                 mgd.OutputFile(metrics_output),
                 mgd.OutputFile(metrics_tar),
                 mgd.OutputFile(outputs_tdf),
@@ -76,10 +76,10 @@ def alignment_workflow(args):
             args=(
                 mgd.InputFile('input.r1.fastq.gz', 'lane_id', fnames=fastqs_r1),
                 mgd.InputFile('input.r2.fastq.gz', 'lane_id', fnames=fastqs_r2),
-                mgd.OutputFile(args['output_prefix'] + '.mouse.aligned.bam'),
-                mgd.OutputFile(args['output_prefix'] + '.mouse.aligned_metrics.csv'),
-                mgd.OutputFile(args['output_prefix'] + '.mouse.aligned_metrics.tar.gz'),
-                mgd.OutputFile(args['output_prefix'] + '.mouse.aligned.bam.tdf'),
+                mgd.OutputFile(args['output_prefix'] + 'mouse_aligned.bam'),
+                mgd.OutputFile(args['output_prefix'] + 'mouse_aligned_metrics.csv'),
+                mgd.OutputFile(args['output_prefix'] + 'mouse_aligned_metrics.tar.gz'),
+                mgd.OutputFile(args['output_prefix'] + 'mouse_aligned.bam.tdf'),
                 sample_info,
                 args['mouse_refdir'],
                 sample_id
@@ -87,15 +87,22 @@ def alignment_workflow(args):
             kwargs={'single_node': args['single_node'],
                     'picard_mem': args['picard_mem']}
         )
+
         ## run disambiguate
         workflow.transform(
             name="disambiguate",
+            ctx=helpers.get_default_ctx(
+                memory=80,
+                walltime='48:00',
+                ncpus='2',
+                disk=300
+            ),
             func=alignment.disambiguate,
             args=(
                 args["output_prefix"],
-                mgd.InputFile(args['output_prefix'] + '.human.aligned.bam'),
-                mgd.InputFile(args['output_prefix'] + '.mouse.aligned.bam'),
-                mgd.OutputFile(args['output_prefix'] + ".disambiguatedSpeciesA.bam")
+                mgd.InputFile(args['output_prefix'] + 'human_aligned.bam'),
+                mgd.InputFile(args['output_prefix'] + 'mouse_aligned.bam'),
+                mgd.TempOutputFile(args['output_prefix'] + ".disambiguatedSpeciesA.bam")
             ),
         )
 
