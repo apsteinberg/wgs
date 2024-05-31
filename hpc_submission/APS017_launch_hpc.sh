@@ -24,7 +24,7 @@ test_outdir=${outdir}/wgs_test
 tmpdir=/data1/shahs3/users/preskaa/tmp
 mkdir -p ${tmpdir}
 ###
-sif_path=/data1/shahs3/users/preskaa/singularity/wgs_alignment_latest.sif
+sif_path=/data1/shahs3/users/preskaa/singularity/wgs_alignment_0531_test.sif
 input_yaml=${HOME}/wgs/hpc_submission/APS017_PDX_test_inputs.yaml
 context_yaml=${HOME}/wgs/hpc_submission/APS017_PDX_test_context_config.yaml
 pipelinedir=${HOME}/wgs
@@ -50,6 +50,7 @@ singularity exec \
     --bind /data1/shahs3 \
     ${sif_path} /bin/bash -c "\
     echo 'slurm:x:300:300::/opt/slurm/slurm:/bin/false' >> /etc/passwd && \
+    && pip install ${pipelinedir}/. && \
     wgs alignment \
         --input_yaml ${input_yaml} \
         --output_prefix ${output_prefix} \
