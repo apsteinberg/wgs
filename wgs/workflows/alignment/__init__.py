@@ -3,6 +3,7 @@ import pypeliner.managed as mgd
 from wgs.config import config
 from wgs.utils import helpers
 from wgs.workflows.alignment.dtypes import dtypes
+import os
 
 def disambiguate(output_prefix, alignment2human, alignment2mouse, humanreads):
     '''
@@ -12,12 +13,14 @@ def disambiguate(output_prefix, alignment2human, alignment2mouse, humanreads):
     :param alignment2mouse: bam file of reads aligned to mouse
 
     '''
+    humanreads_no_tmp = humanreads[:-4]
     ## execute disambiguate
     pypeliner.commandline.execute(
         "disambiguate", "-s", output_prefix,
         alignment2human, alignment2mouse,
         "-a", "bwa"
     )
+    os.rename(humanreads_no_tmp, humanreads)
 def collect_bam_metrics(
         bam, markdups_metrics, sample_id, refdir,
         metrics, picard_insert_metrics, picard_insert_pdf,

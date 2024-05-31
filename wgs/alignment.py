@@ -102,7 +102,7 @@ def alignment_workflow(args):
                 args["output_prefix"],
                 mgd.InputFile(args['output_prefix'] + 'human_aligned.bam'),
                 mgd.InputFile(args['output_prefix'] + 'mouse_aligned.bam'),
-                mgd.TempOutputFile(args['output_prefix'] + ".disambiguatedSpeciesA.bam")
+                mgd.OutputFile(args['output_prefix'] + ".disambiguatedSpeciesA.bam")
             ),
         )
 
