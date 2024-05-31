@@ -62,7 +62,6 @@ singularity exec \
         --maxjobs 1000 \
         --nativespec ' -p componc_cpu -N 1 -n {ncpus} --mem={mem}G -t {walltime} ' \
         --refdir ${refdir} \
-        --sentinel_only \
         --nocleanup \
         --picard_mem 18 \
         --PDX \
