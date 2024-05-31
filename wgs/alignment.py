@@ -95,7 +95,7 @@ def alignment_workflow(args):
                 args["output_prefix"],
                 mgd.InputFile(args['output_prefix'] + '.human.aligned.bam'),
                 mgd.InputFile(args['output_prefix'] + '.mouse.aligned.bam'),
-                mgd.Template(args['output_prefix'] + ".disambiguatedSpeciesA.bam")
+                mgd.OutputFile(args['output_prefix'] + ".disambiguatedSpeciesA.bam")
             ),
         )
 
@@ -111,7 +111,7 @@ def alignment_workflow(args):
             func='wgs.workflows.alignment.tasks.bam_sort',
             args=(
                 mgd.InputFile(args['output_prefix'] + ".disambiguatedSpeciesA.bam"),
-                mgd.Template(outputs),
+                mgd.OutputFile(outputs),
                 mgd.TempSpace('bam_sort_tempdir')
             ),
             kwargs={
@@ -131,7 +131,7 @@ def alignment_workflow(args):
                 'samtools',
                 'index',
                 mgd.InputFile(outputs),
-                mgd.Template(out_bai)
+                mgd.OutputFile(out_bai)
             ),
         )
 
