@@ -50,7 +50,7 @@ singularity exec \
     --bind /data1/shahs3 \
     ${sif_path} /bin/bash -c "\
     echo 'slurm:x:300:300::/opt/slurm/slurm:/bin/false' >> /etc/passwd && \
-    && pip install ${pipelinedir}/. && \
+    pip install ${pipelinedir}/. && \
     wgs alignment \
         --input_yaml ${input_yaml} \
         --output_prefix ${output_prefix} \
