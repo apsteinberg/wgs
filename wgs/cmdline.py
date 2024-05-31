@@ -45,6 +45,9 @@ def add_global_args(subparser):
     subparser.add_argument("--mouse_refdir",
                            required=False,
                            help='''required if PDX flag is used''')
+    subparser.add_argument("--boogie",
+                           required=False,
+                           help='''required if you're about to boogie''')
 
     pypeliner.app.add_arguments(subparser)
 

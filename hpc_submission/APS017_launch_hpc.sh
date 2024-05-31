@@ -35,6 +35,7 @@ output_prefix=${test_outdir}/TCDO-SAR-034-PDX
 mkdir -p ${test_outdir}
 cd ${test_outdir}
 
+
 singularity exec \
     -B /var/run/munge \
     -B /usr/lib64/libmunge.so.2 \
@@ -51,6 +52,7 @@ singularity exec \
     ${sif_path} /bin/bash -c "\
     echo 'slurm:x:300:300::/opt/slurm/slurm:/bin/false' >> /etc/passwd && \
     pip install ${pipelinedir}/. && \
+    export PATH=\"\$HOME/.local/bin:\$PATH\" && \
     wgs alignment \
         --input_yaml ${input_yaml} \
         --output_prefix ${output_prefix} \
