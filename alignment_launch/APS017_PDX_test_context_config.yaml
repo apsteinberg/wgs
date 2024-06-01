@@ -1,0 +1,14 @@
+context:
+  alljobs:
+    ctx:
+      mem_retry_increment: 16
+      walltime: '4:00:00'
+      walltime_num_retry: 5
+      walltime_retry_increment: '48:00:00'
+    name_match: '*'
+singularity:
+  image: /data1/shahs3/users/preskaa/singularity/wgs_alignment_v240531.sif
+  mounts:
+    iris: /data1/shahs3/
+    reference: /data1/shahs3/reference/ref-sarcoma/GRCh38/v45
+  singularity_exe: /usr/bin/singularity
