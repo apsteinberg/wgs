@@ -2,7 +2,7 @@
 #SBATCH --partition=componc_cpu,componc_gpu
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=1
-#SBATCH --time=20:00:00
+#SBATCH --time=96:00:00
 #SBATCH --mem=8GB
 #SBATCH --job-name=wgs
 #SBATCH --mail-type=END,FAIL
