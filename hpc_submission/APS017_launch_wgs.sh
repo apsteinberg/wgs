@@ -19,7 +19,7 @@ module load singularity
 samplesheet=${HOME}/nanoseq/resources/samplesheet.csv
 ## specify path to out directory
 outdir=/data1/shahs3/users/preskaa/APS017_Archive
-test_outdir=${outdir}/wgs_test
+test_outdir=${outdir}/wgs_test_240820
 ## make tmp dir
 tmpdir=/data1/shahs3/users/preskaa/tmp
 mkdir -p ${tmpdir}
