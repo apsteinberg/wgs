@@ -7,7 +7,7 @@
 #SBATCH --job-name=wgs
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=preskaa@mskcc.org
-#SBATCH --output=slurm%j_seqtk.out
+#SBATCH --output=slurm%j_wgs_test.out
 
 
 ## activate nf-core conda environment
