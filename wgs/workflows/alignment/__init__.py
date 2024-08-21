@@ -18,6 +18,7 @@ def disambiguate(output_prefix, alignment2human, alignment2mouse, humanreads):
     pypeliner.commandline.execute(
         "disambiguate", "-s", output_prefix,
         alignment2human, alignment2mouse,
+        "--no-sort",
         "-a", "bwa"
     )
     os.rename(humanreads_no_tmp, humanreads)

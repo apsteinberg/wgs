@@ -2,7 +2,7 @@
 
 ## specify path to out directory
 outdir=/Users/preskaa/PycharmProjects/wgs/alignment_test
-test_outdir=${outdir}/wgs_test
+test_outdir=${outdir}/test_0820
 ## make tmp dir
 ###
 input_yaml=/Users/preskaa/PycharmProjects/wgs/hpc_submission/APS017_local_inputs.yaml
@@ -22,7 +22,8 @@ wgs alignment \
     --picard_mem 18 \
     --context_config ${context_config} \
     --PDX \
-    --mouse_refdir ${mouse_refdir}
+    --mouse_refdir ${mouse_refdir} \
+    --rerun
 
 
 
